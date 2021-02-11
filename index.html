@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>schedule</title>
+</head>
+<body>
+<form>
+    <h1>My Schedule</h1>
+    <br>
+    <h3>Choose a day to view</h3>
+    <br>
+
+    <label for="day-monday">Monday</label>
+    <input type="radio" name="day" id="day-monday" value="0" checked="checked">
+
+    <br>
+
+    <label for="day-tuesday">Tuesday</label>
+    <input type="radio" name="day" id="day-tuesday" value="1">
+
+    <br>
+
+    <label for="day-wednesday">Wednesday</label>
+    <input type="radio" name="day" id="day-wednesday" value="2">
+
+    <br>
+
+    <label for="day-thursday">Thursday</label>
+    <input type="radio" name="day" id="day-thursday" value="3">
+
+    <br>
+
+    <label for="day-friday">Friday</label>
+    <input type="radio" name="day" id="day-friday" value="4">
+
+    <br>
+
+    <label for="day-saturday">Saturday</label>
+    <input type="radio" name="day" id="day-saturday" value="5">
+
+    <br>
+
+    <label for="day-sunday">Sunday</label>
+    <input type="radio" name="day" id="day-sunday" value="6">
+
+    <br>
+
+    <button>Get schedule</button>
+</form>
+<p id="scheduleMsg"></p>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+    $(document).ready(function () {
+        //$("button").click(placeOrder);
+        $("form").submit(getSchedule);
+    });
+
+    function getSchedule(event) {
+        event.preventDefault(); //stops flashing form
+
+        var day = document.getElementsByName('day');
+
+        if (day[0].checked){
+            $("p#scheduleMsg").text("Weightlifting: 10-11am || Class: 12:30-10pm");
+        }
+        else if(day[1].checked){
+            $("p#scheduleMsg").text("Weightlifting: 10-11am || Class: 6-8pm");
+        }
+        else if(day[2].checked){
+            $("p#scheduleMsg").text("Weightlifting: 10-11am || Class: 12:30-4:20pm");
+        }
+        else if(day[3].checked){
+            $("p#scheduleMsg").text("Weightlifting: 10-11am || Class: 6-8pm");
+        }
+        else if(day[4].checked){
+            $("p#scheduleMsg").text("Class: 9am-1pm || Weightlifting: 1-2pm");
+        }
+        else if(day[5].checked){
+            $("p#scheduleMsg").text("Work: 8am-5pm");
+        }
+        else if(day[6].checked){
+            $("p#scheduleMsg").text("Weightlifting: 8-9am || Work: 10am-3pm");
+        }
+
+
+    }
+</script>
+
+
+</html>
